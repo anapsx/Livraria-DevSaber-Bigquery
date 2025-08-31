@@ -50,51 +50,81 @@ erDiagram
     PRODUTOS ||--o{ VENDAS : "compõe"
 
 ---
+````markdown
+## 3. Ingerindo os Dados
 
-3. Ingerindo os Dados
+Os dados foram carregados usando `INSERT INTO`.
 
-Os dados foram carregados usando INSERT INTO.
+- Clientes e Produtos foram inseridos sem duplicatas.  
+- A tabela **Vendas** relaciona os IDs de clientes e produtos, garantindo consistência lógica.
 
-Clientes e Produtos foram inseridos sem duplicatas.
+---
 
-A tabela Vendas relaciona os IDs de clientes e produtos, garantindo consistência lógica.
+## Modelo de Dados
 
-4. Análise de Dados
+```mermaid
+erDiagram
+    CLIENTES {
+        int ID_Cliente PK
+        string Nome_Cliente
+        string Email_Cliente
+        string Estado_Cliente
+    }
 
-Com consultas SQL, respondemos a perguntas de negócio, como:
+    PRODUTOS {
+        int ID_Produto PK
+        string Nome_Produto
+        string Categoria_Produto
+        decimal Preco_Produto
+    }
 
-Quais clientes são de SP?
+    VENDAS {
+        int ID_Venda PK
+        int ID_Cliente FK
+        int ID_Produto FK
+        date Data_Venda
+        int Quantidade
+    }
 
-Quais produtos são da categoria Ficção Científica?
+    CLIENTES ||--o{ VENDAS : "realiza"
+    PRODUTOS ||--o{ VENDAS : "compõe"
+````
 
-Qual o valor total de cada venda?
+---
 
-Qual o produto mais vendido em quantidade?
+## 4. Análise de Dados
 
-5. Automação e Reuso: VIEW
+Com consultas SQL, respondemos a perguntas de negócio como:
 
-Criamos a view v_relatorio_vendas_detalhado, que simplifica consultas recorrentes trazendo:
+* Quais clientes são de **SP**?
+* Quais produtos são da categoria **Ficção Científica**?
+* Qual o valor total de cada venda?
+* Qual o produto mais vendido em quantidade?
 
-cliente,
+---
 
-produto,
+## 5. Automação e Reuso: VIEW
 
-preço,
+Criamos a view **`v_relatorio_vendas_detalhado`**, que simplifica consultas recorrentes trazendo:
 
-quantidade,
-
-valor total.
+* cliente
+* produto
+* preço
+* quantidade
+* valor total
 
 Assim, relatórios podem ser gerados rapidamente sem repetir código SQL.
 
-6. Conclusão
+---
 
-O projeto resultou em um pipeline completo no BigQuery:
+## 6. Conclusão
 
-Criação de schema,
+O projeto resultou em um **pipeline completo no BigQuery**:
 
-Ingestão de dados,
+* Criação de schema
+* Ingestão de dados
+* Análises com `SELECT` e `JOIN`
+* Automação com `VIEW`
 
-Análises com SELECT e JOIN,
 
-Automação com VIEW.
+
