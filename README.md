@@ -1,6 +1,4 @@
-Perfeito, segue o README em **Markdown** formatado e **sem emojis**:
 
-```markdown
 # Mini Projeto – Pipeline de Dados e Análise com SQL no BigQuery  
 
 ## 1. Introdução – A Missão da Livraria DevSaber  
