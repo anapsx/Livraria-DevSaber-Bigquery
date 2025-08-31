@@ -51,47 +51,50 @@ erDiagram
 
 ---
 
-## 3. Ingerindo os Dados
+3. Ingerindo os Dados
 
-Os dados foram carregados usando `INSERT INTO`.
+Os dados foram carregados usando INSERT INTO.
 
-- **Clientes** e **Produtos** foram inseridos sem duplicatas.  
-- A tabela **Vendas** relaciona os IDs de clientes e produtos, garantindo consistência lógica.  
+Clientes e Produtos foram inseridos sem duplicatas.
 
----
+A tabela Vendas relaciona os IDs de clientes e produtos, garantindo consistência lógica.
 
-## 4. Análise de Dados
+4. Análise de Dados
 
 Com consultas SQL, respondemos a perguntas de negócio, como:
 
-- Quais clientes são de **SP**?  
-- Quais produtos são da categoria **Ficção Científica**?  
-- Qual o **valor total de cada venda**?  
-- Qual o **produto mais vendido em quantidade**?  
+Quais clientes são de SP?
 
----
+Quais produtos são da categoria Ficção Científica?
 
-## 5. Automação e Reuso: VIEW
+Qual o valor total de cada venda?
 
-Criamos a view `v_relatorio_vendas_detalhado`, que simplifica consultas recorrentes trazendo:
+Qual o produto mais vendido em quantidade?
 
-- Cliente  
-- Produto  
-- Preço  
-- Quantidade  
-- Valor total  
+5. Automação e Reuso: VIEW
+
+Criamos a view v_relatorio_vendas_detalhado, que simplifica consultas recorrentes trazendo:
+
+cliente,
+
+produto,
+
+preço,
+
+quantidade,
+
+valor total.
 
 Assim, relatórios podem ser gerados rapidamente sem repetir código SQL.
 
----
-
-## 6. Conclusão
+6. Conclusão
 
 O projeto resultou em um pipeline completo no BigQuery:
 
-- Criação de schema  
-- Ingestão de dados  
-- Análises com `SELECT` e `JOIN`  
-- Automação com `VIEW`  
+Criação de schema,
 
+Ingestão de dados,
 
+Análises com SELECT e JOIN,
+
+Automação com VIEW.
